@@ -23,9 +23,9 @@ $(document).ready(function(){
 	// Delete Nodes Mode
 	$('#delete').click(function(){
 		if( $('#delete').prop('checked') ) {
-			$('.circle').addClass('animate-shake delete-node');
+			$('.circle').addClass('animate-shake circle--delete-node');
 		} else {
-			$('.circle').removeClass('animate-shake delete-node');
+			$('.circle').removeClass('animate-shake circle--delete-node animate-bounce').css('opacity', '1');
 		}
 	});
 

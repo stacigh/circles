@@ -76,12 +76,13 @@ body {
     margin-bottom: 1em; }
   .control-panel input {
     float: right; }
-  .control-panel ul {
-    line-height: 1.5; }
-  .control-panel [class^="deleted-nodes-"] {
-    color: #999;
-    display: none; }
+  .control-panel .deleted-nodes-list {
+    display: none;
+    line-height: 1.5;
+    color: #999; }
   .control-panel .deleted-nodes-title {
+    display: none;
+    color: #999;
     margin-top: 20px;
     padding-top: 20px;
     border-top: 1px solid #d0d0d0; }
@@ -113,7 +114,7 @@ body {
   position: absolute;
   opacity: 0;
   cursor: pointer; }
-  .circle.delete-node:before {
+  .circle.circle--delete-node:before {
     content: '\0274c';
     background-color: #ffffff;
     border-radius: 50%;
@@ -123,8 +124,6 @@ body {
     left: calc(50% - 18px);
     width: 36px;
     height: 36px; }
-  .circle.animate-shake {
-    opacity: 1; }
 
 .circle--mint {
   background-color: #a9e5bb;
@@ -185,55 +184,54 @@ body {
   height: 200px;
   border-width: 7px; }
 
-.circle--one {
+.circle--01 {
   top: 50%;
   left: 55%;
   transform: rotate(90deg); }
 
-.circle--two {
+.circle--02 {
   top: 30%;
   left: 45%;
   transform: rotate(90deg); }
 
-.circle--three {
+.circle--03 {
   top: 70%;
   left: 10%;
   transform: rotate(90deg); }
 
-.circle--four {
+.circle--04 {
   top: 60%;
   left: 80%;
   transform: rotate(90deg); }
 
-.circle--five {
+.circle--05 {
   top: 10%;
   right: 5%;
   transform: rotate(90deg); }
 
-.circle--six {
+.circle--06 {
   top: 80%;
   left: 50%; }
 
-.circle--seven {
+.circle--07 {
   bottom: 5%;
   left: 20%; }
 
-.circle--eight {
+.circle--08 {
   bottom: 10%;
   right: 20%; }
 
-.circle--nine {
+.circle--09 {
   top: 10%;
   left: 50%; }
 
-.circle--ten {
+.circle--10 {
   top: 40%;
   left: 10%; }
 
 .tooltip {
   background-color: #594236;
   color: #ffffff;
-  display: none;
   padding: 10px;
   text-align: center;
   width: 90px;
@@ -243,7 +241,8 @@ body {
   top: -55px;
   left: calc(50% - 45px);
   white-space: nowrap;
-  transition: all 800ms ease; }
+  transition: all 800ms ease;
+  display: none; }
   .tooltip:after {
     content: '';
     border-radius: 2px;
@@ -305,6 +304,7 @@ body {
 
 @keyframes shake {
   0% {
+    opacity: 1;
     transform: translate(2px, 1px) rotate(0deg); }
   10% {
     transform: translate(-1px, -2px) rotate(-1deg); }
@@ -325,4 +325,5 @@ body {
   90% {
     transform: translate(2px, 2px) rotate(0deg); }
   100% {
+    opacity: 1;
     transform: translate(1px, -2px) rotate(-1deg); } }
