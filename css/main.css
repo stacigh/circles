@@ -2,7 +2,6 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url(https://fonts.googleapis.com/css?family=Oswald:400,700,300);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -59,6 +58,8 @@ body {
   font-family: 'Oswald', sans-serif; }
 
 .control-panel {
+  position: relative;
+  z-index: 1;
   width: 400px;
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid #f0f0f0;
@@ -82,9 +83,37 @@ body {
   .control-panel input {
     float: right; }
   .control-panel input[type="range"] {
+    cursor: poiner;
+    width: 50%;
+    padding: 7px 0;
     -webkit-appearance: none;
-    height: 24px;
+    height: 25px;
     margin: inherit; }
+    .control-panel input[type="range"]:focus {
+      outline: 2px solid #ff4f79; }
+    .control-panel input[type="range"]::-ms-track {
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+      height: 25px; }
+    .control-panel input[type="range"]::-ms-fill-upper, .control-panel input[type="range"]::-ms-fill-lower {
+      background: #594236; }
+    .control-panel input[type="range"]::-ms-thumb {
+      border: transparent;
+      background: #ff4f79; }
+    .control-panel input[type="range"]::-moz-range-track {
+      height: 8px;
+      background: #594236;
+      border: none;
+      border-radius: 4px; }
+    .control-panel input[type="range"]::-moz-range-thumb {
+      -webkit-appearance: none;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: #ff4f79;
+      margin-top: -4px;
+      border: transparent; }
     .control-panel input[type="range"]::-webkit-slider-runnable-track {
       height: 8px;
       background: #594236;
@@ -107,7 +136,10 @@ body {
   .control-panel .switch-checkbox {
     opacity: 0;
     position: absolute; }
+    .control-panel .switch-checkbox:focus + label {
+      border: 2px solid #ff4f79; }
   .control-panel .switch-label {
+    border: 2px solid transparent;
     display: block;
     overflow: hidden;
     cursor: pointer;
@@ -127,7 +159,7 @@ body {
     font-size: 12px;
     color: white;
     font-family: Trebuchet, Arial, sans-serif;
-    font-weight: bold; }
+    font-weight: 700; }
   .control-panel .switch-inner:before {
     content: "ON";
     padding-left: 14px;
@@ -208,24 +240,24 @@ body {
   border-top-color: #594236;
   border-right-color: #fcf6b1;
   border-bottom-color: #ff4f79;
-  border-left-color: #0cf7d0; }
+  border-left-color: #89cff0; }
 
 .circle--lemon {
   background-color: #fcf6b1;
   border-top-color: #a9e5bb;
   border-right-color: #594236;
-  border-bottom-color: #0cf7d0;
+  border-bottom-color: #89cff0;
   border-left-color: #ff4f79; }
 
 .circle--strawberry {
   background-color: #ff4f79;
   border-top-color: #a9e5bb;
   border-right-color: #fcf6b1;
-  border-bottom-color: #0cf7d0;
+  border-bottom-color: #89cff0;
   border-left-color: #594236; }
 
 .circle--aqua {
-  background-color: #0cf7d0;
+  background-color: #89cff0;
   border-top-color: #a9e5bb;
   border-right-color: #fcf6b1;
   border-bottom-color: #ff4f79;
@@ -235,7 +267,7 @@ body {
   background-color: #594236;
   border-top-color: #a9e5bb;
   border-right-color: #fcf6b1;
-  border-bottom-color: #0cf7d0;
+  border-bottom-color: #89cff0;
   border-left-color: #ff4f79; }
 
 .circle--uniform {
