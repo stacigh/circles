@@ -26,11 +26,14 @@ body {
 	font-family: 'Oswald', sans-serif;
 }
 
+// Control Panel
+// ----------------------------------------------------
 .control-panel {
 	width: 400px;
 	background-color: rgba($c-white, 0.8);
 	border: 1px solid #f0f0f0;
-	transform: translate(-1px, -1px);
+	border-left: 0;
+	border-top: 0;
 	padding: 30px;
 	display: none;
 
@@ -43,14 +46,112 @@ body {
 		margin-bottom: 20px;
 	}
 
-	p {
+	.control-wrap {
 		margin-bottom: 1em;
+		clear: both;
+		line-height: 24px;
+	}
+
+	p {
+		display: inline-block;
 	}
 
 	input {
 		float: right; 
 	}
 
+	// Form Elements
+	input[type="range"] {
+		-webkit-appearance: none;
+		height: 24px;
+		margin: inherit; // Removes wonky margins in FF
+
+		&::-webkit-slider-runnable-track {
+			height: 8px;
+			background: $c-chocolate;
+			border: none;
+			border-radius: 4px;
+		}
+
+		&::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			height: 16px;
+			width: 16px;
+			border-radius: 50%;
+			background: $c-strawberry;
+			margin-top: -4px;
+		}
+	}
+
+	.switch {
+		float: right;
+	    position: relative; 
+	    width: 65px;
+	    -webkit-user-select: none; 
+	    -moz-user-select: none; 
+	    -ms-user-select: none;
+	}
+	.switch-checkbox {
+	    opacity: 0; // Still accessible
+	    position: absolute;
+	}
+	.switch-label {
+	    display: block; 
+	    overflow: hidden; 
+	    cursor: pointer;
+	    // border: 2px solid $c-white; 
+	    border-radius: 50px;
+	}
+	.switch-inner {
+	    display: block; 
+	    width: 200%; 
+	    margin-left: -100%;
+	    transition: margin 0.3s ease-in 0s;
+	}
+	.switch-inner:before, .switch-inner:after {
+	    display: block; 
+	    float: left; 
+	    width: 50%; 
+	    height: 20px; 
+	    padding: 0; 
+	    line-height: 20px;
+	    font-size: 12px; 
+	    color: white; 
+	    font-family: Trebuchet, Arial, sans-serif; 
+	    font-weight: bold;
+	}
+	.switch-inner:before {
+	    content: "ON";
+	    padding-left: 14px;
+	    background-color: $c-strawberry; 
+	    color: $c-white;
+	}
+	.switch-inner:after {
+	    content: "OFF";
+	    padding-right: 14px;
+	    background-color: $c-chocolate;
+	    text-align: right;
+	}
+	.switch-knob {
+	    display: block; 
+	    width: 10px; 
+	    height: 10px;
+	    margin: 5px 7px;
+	    background: $c-white;
+	    position: absolute;
+	    right: 41px;
+	    border: 2px solid $c-white; 
+	    border-radius: 50%;
+	    transition: right 0.3s ease-in 0s; 
+	}
+	.switch-checkbox:checked + .switch-label .switch-inner {
+	    margin-left: 0;
+	}
+	.switch-checkbox:checked + .switch-label .switch-knob {
+	    right: 0px; 
+	}
+
+	// Deleted Nodes List
 	.deleted-nodes-list {
 		display: none;
 		line-height: 1.5;
@@ -63,6 +164,7 @@ body {
 		margin-top: 20px;
 		padding-top: 20px;
 		border-top: 1px solid #d0d0d0;
+		margin-bottom: 1em;
 	}
 }
 
@@ -189,16 +291,16 @@ body {
 
 // Individual Circle Positions
 // ----------------------------------------------------
-.circle--01 { top: 50%; left: 55%; transform: rotate(90deg); }
-.circle--02 { top: 30%; left: 45%; transform: rotate(90deg); }
-.circle--03 { top: 70%; left: 10%; transform: rotate(90deg); }
-.circle--04 { top: 60%; left: 80%; transform: rotate(90deg); }
-.circle--05 { top: 10%; right: 5%; transform: rotate(90deg); }
-.circle--06	{ top: 80%; left: 50%; }
-.circle--07 { bottom: 5%; left: 20%; }
-.circle--08 { bottom: 10%; right: 20%; }
-.circle--09 { top: 10%; left: 50%; }
-.circle--10 { top: 40%; left: 10%; }
+#circle-01 { top: 50%; left: 55%; }
+#circle-02 { top: 30%; left: 45%; }
+#circle-03 { top: 70%; left: 10%; }
+#circle-04 { top: 60%; left: 80%; }
+#circle-05 { top: 10%; right: 5%; }
+#circle-06	{ top: 80%; left: 50%; }
+#circle-07 { bottom: 5%; left: 20%; }
+#circle-08 { bottom: 10%; right: 20%; }
+#circle-09 { top: 10%; left: 50%; }
+#circle-10 { top: 40%; left: 10%; }
 
 // Tooltip
 // ----------------------------------------------------
