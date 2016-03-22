@@ -1,0 +1,314 @@
+@import 'reset';
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,700,300);
+
+// Variables
+// ----------------------------------------------------
+$c-mint: #a9e5bb;
+$c-lemon: #fcf6b1;
+$c-strawberry: #ff4f79;
+$c-aqua: #0cf7d0;
+$c-chocolate: #594236;
+$c-white: #ffffff;
+
+// Base
+// ----------------------------------------------------
+*, *:before, *:after {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	font-family: 'Oswald', sans-serif;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	border: 15px solid #f0f0f0;
+	font-family: 'Oswald', sans-serif;
+}
+
+.control-panel {
+	width: 400px;
+	background-color: rgba($c-white, 0.8);
+	border: 1px solid #f0f0f0;
+	transform: translate(-1px, -1px);
+	padding: 30px;
+	display: none;
+
+	h1 {
+		font-size: 1.5em;
+		color: $c-strawberry;
+		text-transform: uppercase;
+		padding-bottom: 20px;
+		border-bottom: 1px solid #d0d0d0;
+		margin-bottom: 20px;
+	}
+
+	p {
+		margin-bottom: 1em;
+	}
+
+	input {
+		float: right; 
+	}
+
+	ul {
+		line-height: 1.5;
+	}
+
+	[class^="deleted-nodes-"] {
+		color: #999;
+		display: none;
+	}
+
+	.deleted-nodes-title {
+		margin-top: 20px;
+		padding-top: 20px;
+		border-top: 1px solid #d0d0d0;
+	}
+}
+
+// Buttons
+// ----------------------------------------------------
+.button {
+	transition: all 0.2s ease;
+	background-color: $c-strawberry;
+	text-align: center;
+	color: $c-white;
+	padding: 20px 30px;
+	display: inline-block;
+	text-transform: uppercase;
+	font-size: 1.5em;
+	cursor: pointer;
+	z-index: 10;
+	position: absolute;
+	top: calc(50% - 32px);
+	left: calc(50% - 150px);
+	width: 300px;
+
+	&:hover {
+		background-color: $c-chocolate;
+	}
+}
+
+// Circles
+// ----------------------------------------------------
+.circle {
+	transition: all 400ms ease;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	border: 5px solid $c-white;
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+
+	&.delete-node:before {
+		content: '\0274c';
+		background-color: $c-white;
+		border-radius: 50%;
+		padding: 10px;
+		position: absolute;
+		top: calc(50% - 18px);
+		left: calc(50% - 18px);
+		width: 36px;
+		height: 36px;
+	}
+
+	&.animate-shake {
+		opacity: 1;
+	}
+
+}
+
+.circle--mint {
+	background-color: $c-mint;
+	border-top-color: $c-chocolate;
+	border-right-color: $c-lemon;
+	border-bottom-color: $c-strawberry;
+	border-left-color: $c-aqua;
+}
+
+.circle--lemon {
+	background-color: $c-lemon;
+	border-top-color: $c-mint;
+	border-right-color: $c-chocolate;
+	border-bottom-color: $c-aqua;
+	border-left-color: $c-strawberry;
+}
+
+.circle--strawberry {
+	background-color: $c-strawberry;
+	border-top-color: $c-mint;
+	border-right-color: $c-lemon;
+	border-bottom-color: $c-aqua;
+	border-left-color: $c-chocolate;
+}
+
+.circle--aqua {
+	background-color: $c-aqua;
+	border-top-color: $c-mint;
+	border-right-color: $c-lemon;
+	border-bottom-color: $c-strawberry;
+	border-left-color: $c-chocolate;
+}
+
+.circle--chocolate {
+	background-color: $c-chocolate;
+	border-top-color: $c-mint;
+	border-right-color: $c-lemon;
+	border-bottom-color: $c-aqua;
+	border-left-color: $c-strawberry;
+}
+
+.circle--uniform {
+	transition: all 200ms ease;
+	background-color: $c-lemon;
+	border-color: $c-strawberry;
+}
+
+.circle--tiny {
+	width: 50px;
+	height: 50px;
+	border-width: 3px;
+}
+
+.circle--medium {
+	width: 125px;
+	height: 125px;
+}
+
+.circle--large {
+	width: 150px;
+	height: 150px;
+	border-width: 6px;
+}
+
+.circle--xlarge {
+	width: 200px;
+	height: 200px;
+	border-width: 7px;
+}
+
+// Individual Circle Positions
+// ----------------------------------------------------
+.circle--one 	{ top: 50%; left: 55%; transform: rotate(90deg); }
+.circle--two 	{ top: 30%; left: 45%; transform: rotate(90deg); }
+.circle--three 	{ top: 70%; left: 10%; transform: rotate(90deg); }
+.circle--four 	{ top: 60%; left: 80%; transform: rotate(90deg); }
+.circle--five 	{ top: 10%; right: 5%; transform: rotate(90deg); }
+.circle--six 	{ top: 80%; left: 50%; }
+.circle--seven 	{ bottom: 5%; left: 20%; }
+.circle--eight 	{ bottom: 10%; right: 20%; }
+.circle--nine 	{ top: 10%; left: 50%; }
+.circle--ten 	{ top: 40%; left: 10%; }
+
+// Tooltip
+// ----------------------------------------------------
+.tooltip {
+	background-color: $c-chocolate;
+	color: $c-white;
+	display: none;
+	padding: 10px;
+	text-align: center;
+	width: 90px;
+	font-weight: 300;
+	border-radius: 4px;
+	position: absolute;
+	top: -55px;
+	left: calc(50% - 45px);
+	white-space: nowrap;
+	transition: all 800ms ease;
+
+	&:after {
+		content: '';
+		border-radius: 2px;
+		position: absolute;
+		width: 0;
+		height: 0;
+		border: 10px solid $c-chocolate;
+		transform: rotate(45deg);
+		z-index: -1;
+		bottom: -8px;
+		left: calc(50% - 10px);
+	}
+}
+
+// Animations
+// ----------------------------------------------------
+.animate-bounce {
+	animation: bounce 800ms ease-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes bounce {
+  0% {
+	transform:translateY(-100%);
+    opacity: 0;
+  }
+  5% {
+  	transform:translateY(-100%);
+    opacity: 0;
+  }
+  15% {
+  	transform:translateY(0);
+    padding-bottom: 5px;
+  }
+  30% {
+  	transform:translateY(-50%);
+  }
+  40% {
+  	transform:translateY(0%);
+    padding-bottom: 6px;
+  }
+  50% {
+  	transform:translateY(-30%);
+  }
+  70% {
+  	transform:translateY(0%);
+    padding-bottom: 7px;
+  }
+  80% {
+  	transform:translateY(-15%);
+  }
+  90% {
+  	transform:translateY(0%);
+  	padding-bottom: 8px;
+  }
+  95% {
+  	transform:translateY(-7%);
+  }
+  97% {
+  	transform:translateY(0%);
+  	padding-bottom: 9px;
+  }
+  99% {
+  	transform:translateY(-3%);
+  }
+  100% {
+  	transform:translateY(0);
+  	padding-bottom: 9px;
+    opacity: 1;
+  }
+}
+
+.animate-shake {
+	animation-name: shake;
+	animation-duration: 800ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	transform-origin: 50% 50%;
+}
+
+@keyframes shake {
+	0% { transform: translate(2px, 1px) rotate(0deg); }
+	10% { transform: translate(-1px, -2px) rotate(-1deg); }
+	20% { transform: translate(-3px, 0px) rotate(1deg); }
+	30% { transform: translate(0px, 2px) rotate(0deg); }
+	40% { transform: translate(1px, -1px) rotate(1deg); }
+	50% { transform: translate(-1px, 2px) rotate(-1deg); }
+	60% { transform: translate(-3px, 1px) rotate(0deg); }
+	70% { transform: translate(2px, 1px) rotate(-1deg); }
+	80% { transform: translate(-1px, -1px) rotate(1deg); }
+	90% { transform: translate(2px, 2px) rotate(0deg); }
+	100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
